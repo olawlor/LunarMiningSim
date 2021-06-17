@@ -1,0 +1,34 @@
+Terrain image: big endian (mac), 2049x2049 (flip)
+Top right corner is lunar south pole
+10m per pixel horizontal -> Terrain dimensions 20490 x 20490 meters
+
+Incoming heights range from -8760 to 4744 (==meters * 2?)
+Shifted and stretched to 4063 to 48312 in Gimp (==meters*2*3.276732819905213 + 32767)
+Unity terrain Z range is 10000.000000 meters, origin -5000.000000 meters
+
+Dimensions: 20490 10000 20490
+Origin: -20490 -5000 -20490
+
+From https://ode.rsl.wustl.edu/Moon/pagehelp/quickstartguide/index.html?lola_gdrdem.htm
+    LOLA GDRDEM is elevation
+    https://pds-geosciences.wustl.edu/lro/lro-l-lola-3-rdr-v1/lrolol_1xxx/data/lola_gdr/polar/img/
+    Raw LOLA file download path.
+LDEM_87S_5M  30336 x 30336 5 x 5 m    +/- 87.5° to pole
+
+Custom-processed to include horizon falloff (draped over spheroid). 
+
+
+
+From upgraded GSFC LOLA images:
+
+gmic  Site04_final_adj_5mpp_surf.tif -* 2 -* 3.276732819905213 -+ 32767 -/ 65536  -o out.tif
+Cropped to 2049x2049 in GIMP to bottom left corner.
+Exported as .pgm raw (16-bit) and split off using dd:
+    dd if=out_cropped.pgm of=out_cropped.raw bs=65 skip=1
+Dimensions:
+    10245  10000  10245
+    -5000   -5000 -5000
+
+
+
+

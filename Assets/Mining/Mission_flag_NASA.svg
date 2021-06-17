@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="90mm"
+   height="90mm"
+   viewBox="0 0 90 90"
+   version="1.1"
+   id="svg8"
+   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)"
+   sodipodi:docname="Mission_flag.svg"
+   inkscape:export-filename="M:\code\ISRU\BreakTheIce\Lander\Dynetics_ALPACA\Mission_flag.png"
+   inkscape:export-xdpi="288.99557"
+   inkscape:export-ydpi="288.99557">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="171.97505"
+     inkscape:cy="187.51042"
+     inkscape:document-units="mm"
+     inkscape:current-layer="g890"
+     inkscape:document-rotation="0"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="1346"
+     inkscape:window-height="995"
+     inkscape:window-x="236"
+     inkscape:window-y="12"
+     inkscape:window-maximized="0" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-30.931954,-192.83471)">
+    <g
+       id="g890"
+       transform="matrix(0.00879904,0,0,0.00879904,44.506705,202.44295)">
+      <g
+         id="g934"
+         transform="translate(-133.55933)">
+        <rect
+           width="7410"
+           height="3900"
+           fill="#b22234"
+           id="rect833"
+           x="0"
+           y="0"
+           style="fill:#db362d;fill-opacity:1" />
+        <path
+           d="m 0,450 h 7410 m 0,600 H 0 m 0,600 h 7410 m 0,600 H 0 m 0,600 h 7410 m 0,600 H 0"
+           stroke="#ffffff"
+           stroke-width="300"
+           id="path835" />
+        <rect
+           width="2964"
+           height="2100"
+           fill="#3c3b6e"
+           id="rect837"
+           x="0"
+           y="0" />
+        <g
+           fill="#ffffff"
+           id="g862">
+          <g
+             id="s18">
+            <g
+               id="s9">
+              <g
+                 id="s5">
+                <g
+                   id="s4">
+                  <path
+                     id="s"
+                     d="M 247,90 317.53423,307.08204 132.87322,172.91796 H 361.12678 L 176.46577,307.08204 Z" />
+                  <use
+                     xlink:href="#s"
+                     y="420"
+                     id="use840"
+                     x="0"
+                     width="100%"
+                     height="100%" />
+                  <use
+                     xlink:href="#s"
+                     y="840"
+                     id="use842"
+                     x="0"
+                     width="100%"
+                     height="100%" />
+                  <use
+                     xlink:href="#s"
+                     y="1260"
+                     id="use844"
+                     x="0"
+                     width="100%"
+                     height="100%" />
+                </g>
+                <use
+                   xlink:href="#s"
+                   y="1680"
+                   id="use847"
+                   x="0"
+                   width="100%"
+                   height="100%" />
+              </g>
+              <use
+                 xlink:href="#s4"
+                 x="247"
+                 y="210"
+                 id="use850"
+                 width="100%"
+                 height="100%" />
+            </g>
+            <use
+               xlink:href="#s9"
+               x="494"
+               id="use853"
+               y="0"
+               width="100%"
+               height="100%" />
+          </g>
+          <use
+             xlink:href="#s18"
+             x="988"
+             id="use856"
+             y="0"
+             width="100%"
+             height="100%" />
+          <use
+             xlink:href="#s9"
+             x="1976"
+             id="use858"
+             y="0"
+             width="100%"
+             height="100%" />
+          <use
+             xlink:href="#s5"
+             x="2470"
+             id="use860"
+             y="0"
+             width="100%"
+             height="100%" />
+        </g>
+      </g>
+    </g>
+    <g
+       id="main_layer"
+       transform="matrix(0.1293262,0,0,0.1293262,43.069908,252.12142)">
+	<g
+   id="g898">
+		<path
+   fill="#db362d"
+   d="m 91.991,104.699 c 1.576,5.961 4.119,8.266 8.613,8.266 4.659,0 7.102,-2.799 7.102,-8.266 V 3.2 h 29.184 v 101.499 c 0,14.307 -1.856,20.506 -9.11,27.762 -5.228,5.229 -14.871,9.271 -27.047,9.271 -9.837,0 -19.25,-3.256 -25.253,-9.27 -5.263,-5.273 -8.154,-10.689 -12.672,-27.764 L 44.9,37.033 c -1.577,-5.961 -4.119,-8.265 -8.613,-8.265 -4.66,0 -7.103,2.798 -7.103,8.265 v 101.5 H 0 V 37.033 C 0,22.727 1.857,16.527 9.111,9.271 14.337,4.044 23.981,0 36.158,0 c 9.837,0 19.25,3.257 25.253,9.27 5.263,5.273 8.154,10.689 12.672,27.764 z"
+   id="path892" />
+
+		<path
+   fill="#db362d"
+   d="M 478.038,138.533 444.334,33.096 c -0.372,-1.164 -0.723,-2.152 -1.263,-2.811 -0.926,-1.127 -2.207,-1.719 -3.931,-1.719 -1.723,0 -3.004,0.592 -3.931,1.719 -0.539,0.658 -0.891,1.646 -1.262,2.811 L 400.244,138.533 H 370.077 L 406.892,23.356 c 1.918,-6 4.66,-11.094 8.139,-14.488 C 421.002,3.047 428.038,0 439.141,0 c 11.103,0 18.14,3.047 24.109,8.867 3.479,3.395 6.221,8.488 8.14,14.488 l 36.814,115.177 h -30.166 z"
+   id="path894" />
+
+		<path
+   fill="#db362d"
+   d="m 328.878,138.533 c 19.12,0 28.446,-4.062 35.814,-11.389 8.153,-8.105 12.053,-16.973 12.053,-30.213 0,-11.699 -4.283,-22.535 -10.804,-29.019 -8.526,-8.479 -19.116,-11.151 -36.384,-11.151 L 305.37,56.76 c -9.242,0 -12.925,-1.117 -15.839,-3.98 -2.001,-1.964 -2.939,-4.885 -2.939,-8.328 0,-3.559 0.857,-7.074 3.303,-9.475 2.171,-2.131 5.13,-3.109 10.816,-3.109 h 69.903 V 3.2 H 306.05 c -19.12,0 -28.445,4.063 -35.814,11.389 -8.152,8.105 -12.053,16.972 -12.053,30.212 0,11.701 4.283,22.536 10.804,29.019 8.527,8.479 19.116,11.152 36.384,11.152 l 24.188,0.002 c 9.242,0 12.925,1.115 15.839,3.979 2.001,1.965 2.939,4.885 2.939,8.328 0,3.559 -0.857,7.074 -3.302,9.475 -2.172,2.131 -5.131,3.109 -10.817,3.109 H 262.124 L 234.473,23.356 c -1.918,-6 -4.66,-11.094 -8.139,-14.488 C 220.363,3.047 213.327,0 202.224,0 c -11.103,0 -18.14,3.047 -24.108,8.867 -3.48,3.395 -6.221,8.488 -8.139,14.488 l -36.815,115.177 h 30.166 L 197.032,33.095 c 0.372,-1.164 0.723,-2.152 1.263,-2.811 0.926,-1.127 2.208,-1.719 3.931,-1.719 1.723,0 3.004,0.592 3.931,1.719 0.54,0.658 0.891,1.646 1.262,2.811 l 33.704,105.437 h 87.755 z"
+   id="path896" />
+
+	</g>
+
+</g>
+  </g>
+</svg>
