@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7451852955023084205}
   - component: {fileID: 2542210917741596193}
-  - component: {fileID: 2542210917741596198}
   m_Layer: 0
   m_Name: Watertank
   m_TagString: Untagged
@@ -53,20 +52,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!136 &2542210917741596198
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2542210917741596199}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.35175475
-  m_Height: 0.92071277
-  m_Direction: 2
-  m_Center: {x: 0, y: 0, z: 0.451}
 --- !u!1 &6095631128924780734
 GameObject:
   m_ObjectHideFlags: 0
@@ -280,7 +265,6 @@ GameObject:
   - component: {fileID: 8509655846084178369}
   - component: {fileID: 7635324772361202874}
   - component: {fileID: 6868462351478002691}
-  - component: {fileID: 8726086204328229159}
   m_Layer: 8
   m_Name: Excahauler Watertank|Watertank steel v15c|Dupli|1
   m_TagString: Untagged
@@ -349,19 +333,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &8726086204328229159
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8726086204328229156}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.22818448, y: 0.09983133, z: 0.21592088}
-  m_Center: {x: 0.008127273, y: -0.3111845, z: 0.5809829}
 --- !u!1001 &4202276642228398694
 PrefabInstance:
   m_ObjectHideFlags: 0
