@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class ExcahaulerDriveSide : MonoBehaviour
 {
-    public float motorTorque;
+    // Vehicles write data here
+    // Wheels read this data to talk to their motors
+    public float targetSpeed;
 
     // Start is called before the first frame update
     void Start()
     {
-        motorTorque=0.0f;
+        targetSpeed=0.0f;
     }
 
     // Update is called once per frame

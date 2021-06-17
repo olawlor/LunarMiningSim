@@ -19,6 +19,8 @@ public class ExcahaulerDriver : MonoBehaviour, IVehicleMotionScheme
 {
     public float driveTorque=30.0f; // N-m wheel torque at normal driving speed
     
+    // This is how we drive around
+    public ExcahaulerDriveSide driveL, driveR;
     private RobotDriveWheels _drive;
     
     // These are the arm links:
@@ -117,20 +119,20 @@ public class ExcahaulerDriver : MonoBehaviour, IVehicleMotionScheme
         }
         
         // Handle driving commands
-        if (ui.move.magnitude<0.01f) _drive.Stop();
-        else {
-            _drive.Brake(0.0f,0.0f);
+        float L=0.0f, R=0.0f;
+        if (ui.move.magnitude>0.01f) {
             float forward=ui.move.x; //WS throttle
             float turn=ui.move.z*0.5f; //AD steering
-            float L=driveTorque*(forward-turn); // torque for left wheel
-            float R=driveTorque*(forward+turn); // right wheel
+            L=driveTorque*(forward-turn); // torque for left wheel
+            R=driveTorque*(forward+turn); // right wheel
             if (ui.sprint) {
                 L*=3.0f;
                 R*=3.0f;
             }
-            _drive.Drive(L,R); 
             // Debug.Log("Motor drive torques: "+L+", "+R);
         }
+        if (driveL) driveL.targetSpeed=-L; //<- left side motors are rotated around other way
+        if (driveR) driveR.targetSpeed=R;
         
         // Keyboard control for the arm is the H through L keys (moving "up"),
         //   and the ones below that (moving "down").
