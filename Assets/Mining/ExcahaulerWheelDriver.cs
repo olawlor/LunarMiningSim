@@ -21,8 +21,8 @@ public class ExcahaulerWheelDriver : MonoBehaviour
         
         // Make the hinge motor rotate with 90 degrees per second and a strong force.
         JointMotor motor = axle.motor;
-        motor.force = 4; //<- wheels are light, it doesn't take much?
-        motor.targetVelocity = speed*2.0f; // velocity in radians/sec?
+        motor.force = 5; //<- wheels are light, it doesn't take much?
+        motor.targetVelocity = speed*2.5f; // velocity in radians/sec?
         motor.freeSpin = false;
         axle.motor = motor;
     }
