@@ -32,7 +32,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _AerialGlow: 0.775
+    - _AerialGlow: 0.18
     - _DetailAContrast: 0.67
     - _DetailARepeats: 16
     - _DetailBContrast: 0.15
