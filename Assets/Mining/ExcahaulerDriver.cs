@@ -17,6 +17,7 @@ using UnityEngine;
 
 public class ExcahaulerDriver : MonoBehaviour, IVehicleMotionScheme
 {
+    public bool grabsCamera=true;
     public float driveTorque=30.0f; // N-m wheel torque at normal driving speed
     
     // This is how we drive around
@@ -45,7 +46,7 @@ public class ExcahaulerDriver : MonoBehaviour, IVehicleMotionScheme
     // Start is called before the first frame update
     void Start()
     {
-        config[1]=0.4f; // stick needs to start halfway up
+        //config[1]=0.4f; // stick needs to start halfway up
     }
     
     private int _restartCooldown=0; // suppress vehicle entry if we just exited it
@@ -77,9 +78,11 @@ public class ExcahaulerDriver : MonoBehaviour, IVehicleMotionScheme
         _isDriving=true;
         _justStarted=true;
         
-        _smoothCamera=_player.transform.position;
         _player.GetComponent<Rigidbody>().velocity=new Vector3(0,0,0); // stop player momentum
-        _player.GetComponent<Collider>().enabled=false; // stop player collisions
+        if (grabsCamera) {
+            _smoothCamera=_player.transform.position;
+            _player.GetComponent<Collider>().enabled=false; // stop player collisions
+        }
         
     }
     
@@ -97,13 +100,15 @@ public class ExcahaulerDriver : MonoBehaviour, IVehicleMotionScheme
         
         _restartCooldown=30;
         
-        // Teleport player back a bit (this is tricky, collisions are incredibly violent)
-        _player.transform.position=gameObject.transform.position 
-            - 2.0f*gameObject.transform.forward  // move just behind the robot (safest place?)
-            + (new Vector3(0,3.0f,0));
-        
-        // re-enable player collisions (*after* pushing them back.)
-        _player.GetComponent<Collider>().enabled=true; 
+        if (grabsCamera) {
+            // Teleport player back a bit (this is tricky, collisions are incredibly violent)
+            _player.transform.position=gameObject.transform.position 
+                - 2.0f*gameObject.transform.forward  // move just behind the robot (safest place?)
+                + (new Vector3(0,3.0f,0));
+            
+            // re-enable player collisions (*after* pushing them back.)
+            _player.GetComponent<Collider>().enabled=true; 
+        }
         
         // Unregister from the player's controls
         _mgr.PopVehicle(); 
@@ -249,6 +254,7 @@ public class ExcahaulerDriver : MonoBehaviour, IVehicleMotionScheme
     
     public void VehicleUpdate(ref UserInput ui,Transform playerTransform,Transform cameraTransform)
     {
+        if (!grabsCamera) return; 
         if (_justStarted) {
             ui.yaw=0; // robot is oriented differently than you
             _justStarted=false;
