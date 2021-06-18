@@ -21,7 +21,6 @@ public class ExcahaulerDriver : MonoBehaviour, IVehicleMotionScheme
     
     // This is how we drive around
     public ExcahaulerDriveSide driveL, driveR;
-    private RobotDriveWheels _drive;
     
     // These are the arm links:
     public GameObject boom;
@@ -30,6 +29,13 @@ public class ExcahaulerDriver : MonoBehaviour, IVehicleMotionScheme
     public GameObject wrist;
     public GameObject cameraArm;
     
+    // Link to our ToolCouplerLock here.
+    
+    public void endCoupled()
+    {
+        // FIXME: let go of the thing
+    }
+    
     // This gives the rotation of each link:
     public float[] config=new float[5]; // {0.0f,0.0f,0.0f,0.0f,0.0f};
     
@@ -37,8 +43,6 @@ public class ExcahaulerDriver : MonoBehaviour, IVehicleMotionScheme
     void Start()
     {
         config[1]=0.4f;
-        
-        _drive=gameObject.GetComponent<RobotDriveWheels>();
     }
     
     private int _restartCooldown=0; // suppress vehicle entry if we just exited it
@@ -164,6 +168,8 @@ public class ExcahaulerDriver : MonoBehaviour, IVehicleMotionScheme
         if (Input.GetKey(KeyCode.F)) camD+=angleSpeed;
         if (Input.GetKey(KeyCode.V)) camD-=angleSpeed;
         
+        if (Input.GetKey(KeyCode.Space)) endCoupled();
+        
         config[0]+=boomD;
         config[1]+=stickD;
         config[2]+=couplerD;
@@ -174,6 +180,7 @@ public class ExcahaulerDriver : MonoBehaviour, IVehicleMotionScheme
         for (int i=0;i<3;i++) config[i]=Mathf.Clamp(config[i],0.0f,1.0f);
         config[4]=Mathf.Clamp(config[4],-1.0f,1.0f);
         
+        // FIXME: instead of just modifying rotation, apply target to a joint?  Might be more physics-friendly.
         boom.transform.localRotation=Quaternion.Euler(-125.0f*config[0],0.0f,0.0f);
         stick.transform.localRotation=Quaternion.Euler(-150.0f+125.0f*config[1],0.0f,0.0f);
         coupler.transform.localRotation=Quaternion.Euler(140.0f*config[2],0.0f,0.0f);
