@@ -1,3 +1,7 @@
+/* 
+ Attached to the Excahauler coupler horn,
+ this latches onto nearby tools.
+*/
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -44,8 +48,9 @@ public class ToolCouplerLock : MonoBehaviour
             }
             
             // See: https://answers.unity.com/questions/867610/adding-joints-through-script.html
-            coupledJoint = gameObject.AddComponent<FixedJoint>();  
-            coupledJoint.connectedBody = RB;
+            //coupledJoint = gameObject.AddComponent<FixedJoint>();  
+            //coupledJoint.connectedBody = RB;
+            excahauler.toolRB=RB;
             coupled = newTool;
          }
      }

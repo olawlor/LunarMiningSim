@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Mobile
   - RobotPickup
+  - CouplerTool
   layers:
   - Default
   - TransparentFX

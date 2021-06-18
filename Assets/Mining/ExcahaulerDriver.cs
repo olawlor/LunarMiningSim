@@ -29,6 +29,9 @@ public class ExcahaulerDriver : MonoBehaviour, IVehicleMotionScheme
     public GameObject wrist;
     public GameObject cameraArm;
     
+    // Rigidbody for currently held tool, or null if none.
+    public Rigidbody toolRB;
+    
     // Link to our ToolCouplerLock here.
     
     public void endCoupled()
@@ -42,7 +45,7 @@ public class ExcahaulerDriver : MonoBehaviour, IVehicleMotionScheme
     // Start is called before the first frame update
     void Start()
     {
-        config[1]=0.4f;
+        config[1]=0.4f; // stick needs to start halfway up
     }
     
     private int _restartCooldown=0; // suppress vehicle entry if we just exited it
@@ -112,7 +115,30 @@ public class ExcahaulerDriver : MonoBehaviour, IVehicleMotionScheme
         if (_restartCooldown>0) _restartCooldown--;
     }
 
-    // IVehicleMotionScheme interface
+
+    private void MoveJoint(HingeJoint j,float target)
+    {
+     // Springs seem to jello no matter how big the spring constant.
+        JointSpring s=j.spring;
+        s.spring=100000; // good stiff actuation in arm
+        s.damper=1000;
+        s.targetPosition=target;
+        j.spring=s; //<- C# won't let you set one field of a struct (why not?)
+        j.useSpring = true;
+        j.useLimits = false;
+    
+    /*
+        // https://docs.unity3d.com/ScriptReference/HingeJoint-limits.html
+        JointLimits limits = j.limits;
+        limits.min = target;
+        limits.bounciness = 0;
+        limits.bounceMinVelocity = 0;
+        limits.max = target+1;
+        j.limits = limits;
+        j.useSpring = false;
+        j.useLimits = true;
+        */
+    }
 
     // Physics forces
     public void VehicleFixedUpdate(ref UserInput ui,Transform playerTransform,Transform cameraTransform)
@@ -186,6 +212,21 @@ public class ExcahaulerDriver : MonoBehaviour, IVehicleMotionScheme
         coupler.transform.localRotation=Quaternion.Euler(140.0f*config[2],0.0f,0.0f);
         wrist.transform.localRotation=Quaternion.Euler(0.0f,0.0f,180.0f*config[3]);
         cameraArm.transform.localRotation=Quaternion.Euler(0.0f,0.0f,100.0f*config[4]);
+        
+        // After updating all our transforms, make the wrist and the tool be the same.
+        ///   (DANG THIS SUCKS -- nothing seems to let me pick up tools)
+        ///   HACK: just parent the tool on the end of the arm, bogus but easy and works fine.
+        if (toolRB)
+        {
+            toolRB.MovePosition(wrist.transform.position);
+            //toolRB.MoveRotation(wrist.transform.rotation);
+        }
+        
+        /* This seems like it should work better, but results in jello joints.  No.
+        MoveJoint(boom,-125.0f*config[0]);
+        MoveJoint(stick,-50.0f+125.0f*config[1]);
+        */
+        
         //if (Input.GetKey(KeyCode.K)) stick.transform.Rotate(new Vector3(-1.0f,0.0f,0.0f));
         //if (Input.GetKey(KeyCode.J)) coupler.transform.Rotate(new Vector3(-1.0f,0.0f,0.0f));
         //if (Input.GetKey(KeyCode.H)) wrist.transform.Rotate(new Vector3(0.0f,0.0f,-1.0f));
