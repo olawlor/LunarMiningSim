@@ -33,10 +33,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _AerialGlow: 0.18
-    - _DetailAContrast: 0.67
-    - _DetailARepeats: 16
+    - _DetailAContrast: 0.84
+    - _DetailARepeats: 4
     - _DetailBContrast: 0.15
-    - _DetailBRepeats: 256
+    - _DetailBRepeats: 128
     - _Glossiness: 0.206
     - _Metallic: 0
     m_Colors:
