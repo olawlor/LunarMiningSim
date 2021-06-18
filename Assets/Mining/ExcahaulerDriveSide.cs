@@ -11,7 +11,7 @@ public class ExcahaulerDriveSide : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        targetSpeed=0.0f;
+        //targetSpeed=0.0f; //<- prevents pre-rolling robots
     }
 
     // Update is called once per frame

@@ -8,7 +8,7 @@ using Assets.Source.Controls;
 
 public class WalkingMotion : MonoBehaviour, IVehicleMotionScheme {
     public float _moveSpeed=2.0f; // m/s walking speed (per unit player height)
-    public float _sprintSpeed=12.0f; // sprint speed (Usain Bolt peak) 
+    public float _sprintSpeed=25.0f; // 12.0f; // sprint speed (Usain Bolt peak) 
     
     public float _playerCameraOffset=1.8f; // meters between the player frame and camera height
     private float _playerHeight=1.8f; // meters above terrain to lock camera
@@ -53,12 +53,12 @@ public class WalkingMotion : MonoBehaviour, IVehicleMotionScheme {
             var targetWorldVelocity = playerTransform.localRotation*targetVelocity;
             
             var F=spring*(targetWorldVelocity-currentVelocity);
-            if (F.magnitude>maxWalkForce) {
-                F=F.normalized*maxWalkForce;
-            }
+            //if (F.magnitude>maxWalkForce) {
+            //    F=F.normalized*maxWalkForce;
+            //}
             
             F.y=0; // can't apply vertical force (acts like drag)
-            if (ui.jump) 
+            if (ui.jump) //<- or jetpack!
                 F.y+=maxJumpForce;
             
             rb.AddForce(F); 
