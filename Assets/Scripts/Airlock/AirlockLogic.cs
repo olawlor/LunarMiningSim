@@ -67,7 +67,7 @@ public class AirlockLogic : MonoBehaviour
         if (inWait>0 && outWait>0) 
         { // Need to resolve priority:
         //   FIXME: REPLACE THIS HACK WITH SOMETHING REAL
-            if (innerWatcher.last>outerWatcher.last) outWait=0; else inWait=0;
+            //if (innerWatcher.last>outerWatcher.last) outWait=0; else inWait=0;
         }
         
         if (inWait>0) innerScript.Open(); else innerScript.Close();
