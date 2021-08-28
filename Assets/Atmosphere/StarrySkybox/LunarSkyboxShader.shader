@@ -246,9 +246,11 @@ SubShader {
         #else
             half3 ray = IN.rayDir.xyz;
         #endif
+            // Rotate so celestial sphere is right side out
+            half3 skyray=half3(ray.x,ray.y,-ray.z); 
 
             // Look up the star cubemap color
-            half4 texColor = texCUBE (_Tex, ray);
+            half4 texColor = texCUBE (_Tex, skyray);
             //half desat=0.7; // desaturate colors
             //texColor=desat*length(texColor.rgb)+(1.0-desat)*texColor;
             col = _TexBrightness*pow (texColor, 2.0);
