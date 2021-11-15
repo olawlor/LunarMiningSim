@@ -19,6 +19,7 @@ public class ExcahaulerDriver : MonoBehaviour, IVehicleMotionScheme
 {
     public bool grabsCamera=true;
     public float driveTorque=30.0f; // N-m wheel torque at normal driving speed
+    public float drivePower=50.0f; // user-configurable drive power adjustment (start slow)
     
     // This is how we drive around
     public ExcahaulerDriveSide driveL, driveR;
@@ -152,14 +153,26 @@ public class ExcahaulerDriver : MonoBehaviour, IVehicleMotionScheme
             StopDriving();
             return;
         }
-        
+        if (Input.GetKey(KeyCode.P)) // adjusting drive power with P-number
+        {
+            if (Input.GetKey(KeyCode.Alpha1)) drivePower=10.0f; 
+            if (Input.GetKey(KeyCode.Alpha2)) drivePower=20.0f; 
+            if (Input.GetKey(KeyCode.Alpha3)) drivePower=30.0f; 
+            if (Input.GetKey(KeyCode.Alpha4)) drivePower=40.0f; 
+            if (Input.GetKey(KeyCode.Alpha5)) drivePower=50.0f; 
+            if (Input.GetKey(KeyCode.Alpha6)) drivePower=60.0f; 
+            if (Input.GetKey(KeyCode.Alpha7)) drivePower=70.0f; 
+            if (Input.GetKey(KeyCode.Alpha8)) drivePower=80.0f; 
+            if (Input.GetKey(KeyCode.Alpha9)) drivePower=90.0f; 
+            if (Input.GetKey(KeyCode.Alpha0)) drivePower=100.0f;
+        }
         // Handle driving commands
         float L=0.0f, R=0.0f;
         if (ui.move.magnitude>0.01f) {
             float forward=ui.move.x; //WS throttle
             float turn=ui.move.z*0.5f; //AD steering
-            L=driveTorque*(forward-turn); // torque for left wheel
-            R=driveTorque*(forward+turn); // right wheel
+            L=drivePower/100.0f*driveTorque*(forward-turn); // torque for left wheel
+            R=drivePower/100.0f*driveTorque*(forward+turn); // right wheel
             if (ui.sprint) {
                 L*=3.0f;
                 R*=3.0f;
