@@ -7,6 +7,7 @@ public class ExcahaulerDriveSide : MonoBehaviour
     // Vehicles write data here
     // Wheels read this data to talk to their motors
     public float targetSpeed;
+    public float direction=+1.0f;
 
     // Start is called before the first frame update
     void Start()
