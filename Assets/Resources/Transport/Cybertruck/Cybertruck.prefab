@@ -291,6 +291,7 @@ MonoBehaviour:
   _torque: 3000
   _steeringAngle: 45
   _rollingBrakeTorque: 3000
+  _wheelCenterOffset: -0.45
   PlayerSeatTransform: {fileID: 8499934534396774143}
   _axleInfos:
   - leftWheel: {fileID: 8499934534485015267}

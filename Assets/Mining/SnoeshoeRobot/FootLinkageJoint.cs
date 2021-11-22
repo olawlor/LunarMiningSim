@@ -11,8 +11,11 @@ public class FootLinkageJoint : MonoBehaviour
     private ConfigurableJoint joint; // our joint to the robot
     
     public float radius=0.1f; // foot motion radius, in meters
-    public float phase=0.0f; // 0 == forward.  90 == foot lift.  180 == foot back. 270 == foot down.
+    public float phase=0.0f; // 0 == foot up.  90 == forward.  180 == down. -90 == back.
     float phaseRate=300.0f; // degrees of foot phase per second of 100% speed travel
+    public float lobes=0.0f; // epicycles inside main foot cycle
+    public float lobeRadius=0.025f; // radius of gyration of epicycles
+    public float lobePhaseStart=0.0f; // degrees offset at phase==0 (0->corner at top.  180->flat at top.)
     
     // Start is called before the first frame update
     void Start()
@@ -39,9 +42,19 @@ public class FootLinkageJoint : MonoBehaviour
         // Move the foot to match the target phase:
         float s = Mathf.Sin(phase*Mathf.Deg2Rad);
         float c = Mathf.Cos(phase*Mathf.Deg2Rad);
-        //transform.localPosition=new Vector3(0,radius*s,radius*c);
-        joint.targetPosition = //new Vector3(0,radius*s,radius*c); // rest position forward
-            new Vector3(0,-radius*c,-radius*s); // rest position up
+        
+        float x = radius*s;
+        float y = radius*c;
+        
+        if (lobes>0.0f) { // epicyclic gear
+            float lobePhase=-phase*(lobes-1.0f) + lobePhaseStart;
+            float lx=lobeRadius*Mathf.Sin(lobePhase*Mathf.Deg2Rad);
+            float ly=lobeRadius*Mathf.Cos(lobePhase*Mathf.Deg2Rad);
+            x+=lx;
+            y+=ly;
+        }
+        
+        joint.targetPosition = new Vector3(0,-y,-x); // rest position up
     }
 }
 

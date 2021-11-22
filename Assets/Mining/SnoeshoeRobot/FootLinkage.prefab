@@ -46,8 +46,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21aed764f2ee6e641bec47c8d627d70f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 0.1
+  radius: 0.2
   phase: 0
+  lobes: 2
+  lobeRadius: 0.1
+  lobePhaseStart: 180
 --- !u!54 &4053408921911515980
 Rigidbody:
   m_ObjectHideFlags: 0
