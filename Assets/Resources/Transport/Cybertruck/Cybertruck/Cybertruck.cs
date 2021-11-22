@@ -17,6 +17,7 @@ public class Cybertruck : MonoBehaviour, IVehicleMotionScheme
     [SerializeField] private  float _torque = default;
     [SerializeField] private float _steeringAngle = default;
     [SerializeField] private float _rollingBrakeTorque = default;
+    public float _wheelCenterOffset = -0.5f; // radius of wheel
     
     public Transform PlayerSeatTransform = default;
     private Rigidbody rb;
@@ -127,9 +128,9 @@ public class Cybertruck : MonoBehaviour, IVehicleMotionScheme
         Quaternion rotation;
         collider.GetWorldPose(out position, out rotation);
 
-        Vector3 wheelPos=visualWheel.transform.position;
-        wheelPos.y = position.y; // track vertical position (suspension)
-        visualWheel.transform.position = wheelPos;
+        Vector3 wheelPos=visualWheel.transform.localPosition;
+        wheelPos.y = visualWheel.InverseTransformPoint(position).y+_wheelCenterOffset; // track vertical position (suspension)
+        visualWheel.transform.localPosition = wheelPos;
         
         visualWheel.transform.rotation = rotation;
 
